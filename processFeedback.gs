@@ -187,6 +187,12 @@ function createFeedbackSheet(spreadsheetId, feedbackData) {
   // 建立新的 sheet 在最前面（索引 0）
   sheet = teacherSheet.insertSheet(FEEDBACK_SHEET_NAME, 0);
   
+  // 凍結第一列
+  sheet.setFrozenRows(1);
+  
+  // 設定頁籤顏色為紅色
+  sheet.setTabColor('#FF0000');
+  
   // 設定欄寬
   sheet.setColumnWidth(1, 80);    // 學員姓名
   sheet.setColumnWidth(2, 150);   // 學校名稱 (縮短)
