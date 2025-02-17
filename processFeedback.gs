@@ -1,7 +1,7 @@
 // 常數定義 - 使用不同的命名以避免衝突
 const FEEDBACK_SOURCE_SPREADSHEET_ID = '11N3O17AWSOi61ASVbNUzk5bP_3jqwZvYNEFqreMKT_0';
 const HACKFOLDR_SPREADSHEET_ID = '14XcP4wHaxj6iL_emG9029mGb1vC2KRL1qSXayVuk3s4';
-const TEACHER_NAME = '劉正吉';
+const TEACHER_NAME = '蔡兆琛';
 const FEEDBACK_SHEET_NAME = '學員回饋';
 
 // 主要執行函數
@@ -165,7 +165,8 @@ function getRatingText(index) {
 // 找到心得回饋欄位
 function getFeedbackColumn(headers) {
   for (let i = 0; i < headers.length; i++) {
-    if (headers[i].includes(`給【語音聲控 Lesson 1-${TEACHER_NAME}】課程內容的建議或心得`)) {
+    // 修改搜尋條件以符合實際問卷欄位名稱
+    if (headers[i].includes(`給【科技競賽準備 from 評審視角-${TEACHER_NAME}】課程內容的建議或心得`)) {
       return i;
     }
   }
@@ -179,10 +180,12 @@ function createFeedbackSheet(spreadsheetId, feedbackData) {
   // 檢查是否已存在同名 sheet
   let sheet = teacherSheet.getSheetByName(FEEDBACK_SHEET_NAME);
   if (sheet) {
-    sheet.clear();
-  } else {
-    sheet = teacherSheet.insertSheet(FEEDBACK_SHEET_NAME);
+    // 如果已存在，先刪除
+    teacherSheet.deleteSheet(sheet);
   }
+  
+  // 建立新的 sheet 在最前面（索引 0）
+  sheet = teacherSheet.insertSheet(FEEDBACK_SHEET_NAME, 0);
   
   // 設定欄寬
   sheet.setColumnWidth(1, 80);    // 學員姓名
