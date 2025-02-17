@@ -206,6 +206,15 @@ function createFeedbackSheet(spreadsheetId, feedbackData) {
             .setVerticalAlignment("middle")    // 垂直置中
             .setFontWeight("bold")  // 文字粗體
             .setWrap(true);  // 允許文字換行
+            
+  // 設定第四欄標題的字體格式（使用 Rich Text）
+  const richText = SpreadsheetApp.newRichTextValue()
+    .setText(headers[3])
+    .setTextStyle(0, headers[3].indexOf('\n'), SpreadsheetApp.newTextStyle().setFontSize(11).build())
+    .setTextStyle(headers[3].indexOf('\n') + 1, headers[3].length, SpreadsheetApp.newTextStyle().setFontSize(8).build())
+    .build();
+  
+  sheet.getRange(1, 4).setRichTextValue(richText);
   
   // 設定標題背景顏色
   sheet.getRange(1, 1, 1, 3).setBackground("#6C6C6C");  // 前三欄淺灰色
