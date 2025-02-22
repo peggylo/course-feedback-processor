@@ -1,7 +1,7 @@
 // 常數定義 - 使用不同的命名以避免衝突
 const FEEDBACK_SOURCE_SPREADSHEET_ID = '11N3O17AWSOi61ASVbNUzk5bP_3jqwZvYNEFqreMKT_0';
 const HACKFOLDR_SPREADSHEET_ID = '14XcP4wHaxj6iL_emG9029mGb1vC2KRL1qSXayVuk3s4';
-const TEACHER_NAME = '蔡兆琛';
+const TEACHER_NAME = '請填入講師名稱';
 const FEEDBACK_SHEET_NAME = '學員回饋';
 
 // 主要執行函數
@@ -166,7 +166,7 @@ function getRatingText(index) {
 function getFeedbackColumn(headers) {
   for (let i = 0; i < headers.length; i++) {
     // 修改搜尋條件以符合實際問卷欄位名稱
-    if (headers[i].includes(`給【科技競賽準備 from 評審視角-${TEACHER_NAME}】課程內容的建議或心得`)) {
+    if (headers[i].includes(`給【課程名稱-${TEACHER_NAME}】課程內容的建議或心得`)) {
       return i;
     }
   }
