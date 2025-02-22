@@ -1,6 +1,6 @@
 // 常數定義 - 使用不同的命名以避免衝突
-const FEEDBACK_SOURCE_SPREADSHEET_ID = '11N3O17AWSOi61ASVbNUzk5bP_3jqwZvYNEFqreMKT_0';
-const HACKFOLDR_SPREADSHEET_ID = '14XcP4wHaxj6iL_emG9029mGb1vC2KRL1qSXayVuk3s4';
+const FEEDBACK_SOURCE_SPREADSHEET_ID = '資料來源sheet ID';
+const HACKFOLDR_SPREADSHEET_ID = '講師個別sheet對照sheet ID';
 const TEACHER_NAME = '請填入講師名稱';
 const FEEDBACK_SHEET_NAME = '學員回饋';
 
